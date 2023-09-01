@@ -14,11 +14,10 @@ db_connection = mysql.connector.connect(
 db_cursor = db_connection.cursor()
 
 
-
+#Web Scrapping
 url = 'http://bbs.ankara.edu.tr/Ders_Bilgileri.aspx?dno=1008750&bno=1596&bot=193'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
-
 div_element = soup.find('div', id='body_content_pnlDersAkis')
 
 

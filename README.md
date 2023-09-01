@@ -101,3 +101,6 @@ Finally, we are ready to go further operations. Since it is waste of time to wri
 ## Web Scrapping
 
 Our mutual friend John is an English Language and Literature student at Ankara University. He is forgetful and wants to determine his knowledge in specific subjects in order to study accordingly, he would like to use an existing web scraper instead of manually listing all the topics for each week. For this purpose, the first step of the code we will write is to go to the university's course schedule page and perform a brief examination."
+
+
+![Classical Literature](https://github.com/hanmakyol/ELL/blob/main/Introduction%20to%20classical%20literature.png)

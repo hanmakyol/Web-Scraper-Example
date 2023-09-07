@@ -203,3 +203,68 @@ and finally we are clossing our cursor and connection to database.
 db_cursor.close()
 db_connection.close()
 ```
+Now you can use the same script for other urls just changing the name of the table and website link. You can use **textual_scraper.py** and **survey_scraper.py**
+
+## Importing Data to Excel
+
+To visualize the data more effectively, I will use Excel. Let's write a script again. 
+
+First, as usual, we need to import packages. **Pandas** and **mysql.connector** will be enough for this.
+
+```python
+import mysql.connector
+import pandas as pd
+```
+Secondly, make sure the connection of database is provided.
+
+```python
+db_connection = mysql.connector.connect(
+    host='localhost',
+    user='webscrapper',
+    password='mypassword',
+    database='WebScrapperDB'
+)
+```
+
+To union tables we use SQL query **UNION ALL** and also I want to see the data grouped by **Week**
+```python
+query = """
+    SELECT
+        CAST(column1 AS SIGNED) AS Week,
+        GROUP_CONCAT(column2 SEPARATOR ', ') AS Topics
+    FROM (
+        SELECT column1, column2 FROM classical_lit
+        UNION ALL
+        SELECT column1, column2 FROM survey_of_british_lit
+        UNION ALL
+        SELECT column1, column2 FROM textual_analysis
+    ) AS combined_tables
+    GROUP BY Week
+    ORDER BY Week;
+"""
+```
+
+When I run the code I saw there was an unnecessary row, to eleminate that:
+
+```python
+df = df[df['Topics'] != 'Topics, Topics, Topics']
+```
+
+Here is the part we save the data in excel file.
+
+```python
+excel_file_path = "D:/ELL/datas.xlsx"
+df.to_excel(excel_file_path, index=False)
+```
+
+## Assigning Grades
+
+Finally we are ready to assign grades to our table. Also you can run the excel script after this step. Be sure you add grade table in the query part.
+
+We can either manually enter the grade inputs one by one or write a script that assigns random values for us. Let's use both of them.
+
+For manually: you can use **grade.py**
+For randomly: you can use **random_grades.py**
+
+## Data Visualization 
+

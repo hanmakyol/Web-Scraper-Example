@@ -4,9 +4,9 @@ import pandas as pd
 # Connect to the MySQL database
 db_connection = mysql.connector.connect(
     host='localhost',
-    user='datae',
-    password='323414ch.',
-    database='project1_data_base'
+    user='webscrapper',
+    password='scrap1122',
+    database='WebScrapperDB'
 )
 
 # Execute the modified query
@@ -34,7 +34,23 @@ df = df[df['Topics'] != 'Topics, Topics, Topics']
 excel_file_path = "D:/ELL/datas.xlsx"
 df.to_excel(excel_file_path, index=False)
 
-# Close the database connection
-db_connection.close()
+# Define the target table name in the database
+target_table = "combined_tables"
 
-print("Results exported to Excel successfully.")
+try:
+    # Iterate through the DataFrame and insert data into the MySQL table
+    for _, row in df.iterrows():
+        insert_query = f"INSERT INTO {target_table} (Week, Topics) VALUES (%s, %s)"
+        cursor = db_connection.cursor()
+        cursor.execute(insert_query, (row['Week'], row['Topics']))
+        cursor.close()
+
+    # Commit the changes and close the database connection
+    db_connection.commit()
+    db_connection.close()
+
+    print("Data imported from Excel to MySQL successfully.")
+
+except Exception as e:
+    print(f"Error: {str(e)}")
+

@@ -3,10 +3,10 @@ import random
 
 # Connect to the MySQL database
 db_connection = mysql.connector.connect(
-    host="localhost",
-    user="datae",
-    password="323414ch.",
-    database="project1_data_base"
+    host='localhost',
+    user='webscrapper',
+    password='scrap1122',
+    database='WebScrapperDB'
 )
 
 

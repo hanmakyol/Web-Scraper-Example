@@ -13,10 +13,10 @@ db_connection = mysql.connector.connect(
 cursor = db_connection.cursor()
 
 # Query to update the Grade column with random integer grades between 50 and 100
-update_query = "UPDATE merged_table SET Grade = %s WHERE Week = %s;"
+update_query = "UPDATE combined_tables SET Grade = %s WHERE Week = %s;"
 
 # Get the list of weeks in your dataset
-select_weeks_query = "SELECT DISTINCT Week FROM merged_table;"
+select_weeks_query = "SELECT DISTINCT Week FROM combined_tables;"
 cursor.execute(select_weeks_query)
 weeks = [row[0] for row in cursor.fetchall()]
 

@@ -5,17 +5,18 @@ import numpy as np
 
 # Connect to the MySQL database
 db_connection = mysql.connector.connect(
-    host="localhost",
-    user="datae",
-    password="323414ch.",
-    database="project1_data_base"
+    host='localhost',
+    user='webscrapper',
+    password='scrap1122',
+    database='WebScrapperDB'
 )
+
 
 # Create a cursor
 cursor = db_connection.cursor()
 
 # Execute an SQL query to retrieve data and exclude the label row
-query = "SELECT Week, Grade FROM merged_table WHERE Week != 'Week' ORDER BY CAST(Week AS SIGNED);"
+query = "SELECT Week, Grade FROM combined_tables WHERE Week != 'Week' ORDER BY CAST(Week AS SIGNED);"
 cursor.execute(query)
 
 # Fetch the data

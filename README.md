@@ -274,5 +274,25 @@ For randomly: you can use **random_grades.py**
 
 To run **graph.py** you must run **random_grades.py** first to assign INT for every row. 
 
-![Selecting Element Tool](https://github.com/hanmakyol/ELL/blob/main/Getting%20Table%20Name.png)
+As an example it will look like this:
 
+![Selecting Element Tool](https://github.com/hanmakyol/ELL/blob/main/Figure_1.png)
+
+## Contributing
+
+We welcome contributions from the community to improve this project. To contribute, please follow these guidelines:
+
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your contribution: `git checkout -b feature/your-feature`.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your fork: `git push origin feature/your-feature`.
+5. Create a Pull Request (PR) to the `main` branch of this repository.
+6. Ensure your PR includes a clear description of the changes made.
+
+### Reporting Issues
+
+If you encounter issues or bugs, please open a GitHub issue with a clear description of the problem. Feel free to ask.
+
+## License
+
+This project is licensed under the [Your License Name] License - see the [LICENSE.md](LICENSE.md) file for details.

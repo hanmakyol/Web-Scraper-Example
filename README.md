@@ -259,7 +259,11 @@ df.to_excel(excel_file_path, index=False)
 
 ## Assigning Grades
 
-Finally we are ready to assign grades to our table. Also you can run the excel script after this step. Be sure you add grade table in the query part.
+Finally we are ready to assign grades to our table. Also you can run the excel script after this step. Be sure you add grade column to the **combined_tables**.
+
+```SQL
+ALTER TABLE combined_tables ADD COLUMN Grade INT;
+```
 
 We can either manually enter the grade inputs one by one or write a script that assigns random values for us. Let's use both of them.
 
@@ -267,4 +271,8 @@ For manually: you can use **grade.py**
 For randomly: you can use **random_grades.py**
 
 ## Data Visualization 
+
+To run **graph.py** you must run **random_grades.py** first to assign INT for every row. 
+
+![Selecting Element Tool](https://github.com/hanmakyol/ELL/blob/main/Getting%20Table%20Name.png)
 
